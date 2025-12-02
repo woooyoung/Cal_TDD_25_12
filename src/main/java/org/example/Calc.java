@@ -2,13 +2,20 @@ package org.example;
 
 public class Calc {
 
-    public static int run(String exp) {
+    public static int run(String exp) { // 10 + 5 * 2
 
         boolean needToMulti = exp.contains("*");
         boolean needToPlus = exp.contains("+");
 
+        boolean needToCompound = needToPlus && needToMulti;
+
         exp = exp.replace("- ", "+ -");
 
+        if (needToCompound) {
+            String[] bits = exp.split(" \\+ ");
+
+            return Integer.parseInt(bits[0]) + run(bits[1]);
+        }
 
         if (needToPlus) {
             String[] bits = exp.split(" \\+ ");
