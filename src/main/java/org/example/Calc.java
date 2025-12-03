@@ -16,6 +16,11 @@ public class Calc {
         // 괄호 제거
         exp = stripOuterBrackets(exp);
 
+        // 만약에 -( 패턴이면?
+        if (isCaseMinusBracket(exp)) {
+            exp = exp.substring(1) + " * -1";
+        }
+
         if (debug) {
             System.out.printf("exp (%d) : %s\n", runCallCount, exp);
         }
@@ -78,6 +83,13 @@ public class Calc {
 
 
         throw new RuntimeException("해석 불가 : 올바른 계산식이 아님");
+    }
+
+    private static boolean isCaseMinusBracket(String exp) {
+        // -(로 시작하는지?
+        if (exp.startsWith("-(") == false) return false;
+
+        return true;
     }
 
     private static int findSplitPointIndex(String exp) {
