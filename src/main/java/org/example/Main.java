@@ -6,11 +6,11 @@ public class Main {
         String exp = "5 + -(9 + 1) * -(8 + 2) + 5";
 
         int startPos = 4;
-        int ennPos = 11;
+        int endPos = 11;
 
         String head = exp.substring(0, startPos);
-        String body = "(" + exp.substring(startPos + 1, ennPos + 1) + " * -1)";
-        String tail = exp.substring(ennPos + 1);
+        String body = "(" + exp.substring(startPos + 1, endPos + 1) + " * -1)";
+        String tail = exp.substring(endPos + 1);
 
         System.out.println("head: " + head);
         System.out.println("body: " + body);
