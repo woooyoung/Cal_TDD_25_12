@@ -157,4 +157,9 @@ public class CalcTest {
         assertThat(Calc.run("(20 + 20) * 20")).isEqualTo(800);
     }
 
+    @Test
+    @DisplayName("10 + (10 + 5) == 25")
+    public void test26() {
+        assertThat(Calc.run("10 + (10 + 5)")).isEqualTo(25);
+    }
 }
